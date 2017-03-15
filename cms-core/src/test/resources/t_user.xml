@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<t_user id="1" username="admin1" password="123"  create_date="2015-09-01"
+			nickname="admin1" email="admin1@admin.com" status="1" phone="110"/>
+	<t_user id="2" username="admin2" password="123" create_date="2015-09-01"
+			nickname="admin1" email="admin1@admin.com" status="1" phone="110"/>-
+	<t_user id="3" username="admin3" password="123"  create_date="2015-09-01"
+			nickname="admin1" email="admin1@admin.com" status="1" phone="110"/>
+
+
+	<t_group id="1" name="财务部" remarks="负责财务部的网页"/>
+	<t_group id="2" name="计科系" remarks="负责财务部的网页"/>
+	<t_group id="3" name="宣传部" remarks="负责财务部的网页"/>
+
+
+	<t_role id="1" name="管理员" role_type="ROLE_ADMIN"/>
+	<t_role id="2" name="文章发布人员" role_type="ROLE_PUBLISH"/>
+	<t_role id="3" name="文章审核人员" role_type="ROLE_AUDIT"/>
+
+	<t_user_role id="1" user_id="1" role_id="1"/>
+	<t_user_role id="2" user_id="2" role_id="2"/>
+	<t_user_role id="4" user_id="2" role_id="3"/>
+	<t_user_role id="3" user_id="1" role_id="2"/>
+
+	<t_user_group id="1" user_id="1" group_id="1"/>
+	<t_user_group id="2" user_id="2" group_id="1"/>
+	<t_user_group id="4" user_id="3" group_id="3"/>
+	<t_user_group id="3" user_id="2" group_id="3"/>
+	<t_user_group id="5" user_id="3" group_id="2"/>
+
+</dataset>

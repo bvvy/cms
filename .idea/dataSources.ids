@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - @localhost" uuid="a06bdb33-95e3-478b-8037-689c00c4dc08">
+    <database-info product="MySQL" version="5.6.21-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="bvvy_cms"/>
+    <table name="t_channel" schema="" catalog="bvvy_cms" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="channel_type" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="custom_link" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="custom_link_url" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="is_index" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="is_top_nav" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="orders" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="recommend" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="pid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_8xberajm2i2c97rwrellh0eqk" columns="pid" ref-table="t_channel" ref-schema="" ref-catalog="bvvy_cms" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK_8xberajm2i2c97rwrellh0eqk" table="t_channel" schema="" catalog="bvvy_cms" columns="pid"/>
+      <index name="FK_8xberajm2i2c97rwrellh0eqk" unique="false" columns="pid"/>
+    </table>
+    <table name="t_group" schema="" catalog="bvvy_cms" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="remarks" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_6jrif1xrvpdhdh0mfb7w2b64l" table="t_user_group" schema="" catalog="bvvy_cms" columns="group_id"/>
+    </table>
+    <table name="t_role" schema="" catalog="bvvy_cms" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="role_type" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_4uvv76e86ms8ru0kk9s01d3s2" table="t_user_role" schema="" catalog="bvvy_cms" columns="role_id"/>
+    </table>
+    <table name="t_user" schema="" catalog="bvvy_cms" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="create_date" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="nickname" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="phone" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="username" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK_2vnmvchb62hmy9hl5e7inqewk" table="t_user_group" schema="" catalog="bvvy_cms" columns="user_id"/>
+      <exported-key name="FK_kefwen29p9h9ilvry31mgyc94" table="t_user_role" schema="" catalog="bvvy_cms" columns="user_id"/>
+    </table>
+    <table name="t_user_group" schema="" catalog="bvvy_cms" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_2vnmvchb62hmy9hl5e7inqewk" columns="user_id" ref-table="t_user" ref-schema="" ref-catalog="bvvy_cms" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_6jrif1xrvpdhdh0mfb7w2b64l" columns="group_id" ref-table="t_group" ref-schema="" ref-catalog="bvvy_cms" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_2vnmvchb62hmy9hl5e7inqewk" unique="false" columns="user_id"/>
+      <index name="FK_6jrif1xrvpdhdh0mfb7w2b64l" unique="false" columns="group_id"/>
+    </table>
+    <table name="t_user_role" schema="" catalog="bvvy_cms" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="role_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_4uvv76e86ms8ru0kk9s01d3s2" columns="role_id" ref-table="t_role" ref-schema="" ref-catalog="bvvy_cms" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_kefwen29p9h9ilvry31mgyc94" columns="user_id" ref-table="t_user" ref-schema="" ref-catalog="bvvy_cms" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK_4uvv76e86ms8ru0kk9s01d3s2" unique="false" columns="role_id"/>
+      <index name="FK_kefwen29p9h9ilvry31mgyc94" unique="false" columns="user_id"/>
+    </table>
+  </data-source>
+</component>
